@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id ="db" class="com.project.db.Database" abstract ="true">
+	<property name="username"  value="UNLornekXML"></property>
+	<property name="password"  value="PasswordornekXML"></property>
+	</bean>
+	
+	<bean id ="mySql" class="com.project.db.Database" parent="db">
+	<property name="url"  value="Mysql"></property>
+	</bean>
+	
+	<bean id ="oracle" class="com.project.db.Database" parent="db">
+	<property name="url"  value="Oracle"></property>
+	</bean>
+	
+	<bean id ="connection" class="com.project.db.DBConnection" init-method="validation" destroy-method="closeConnection">
+	<property name="database" ref="oracle"></property>
+	</bean>
+	
+	<bean class = "com.project.bean.factory.BeanFactory"></bean>
+
+</beans>

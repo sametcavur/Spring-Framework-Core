@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"> </bean>
+	
+	<bean id ="mySql" class="com.project.db.MySqlDatabase">
+	<property name="url"  value="MySql URL"></property>
+	<property name="username" value="Mysql Username"></property>
+	<property name="password" value="Mysql Password"></property>
+	</bean>
+	
+	<bean id ="oracle" class="com.project.db.OracleDatabase">
+	<property name="url"  value="Oracle URL"></property>
+	<property name="username" value="Oracle Username"></property>
+	<property name="password" value="Oracle Password"></property>
+	</bean>
+	
+	<bean id ="Oracleconnection" class="com.project.db.DbConnection">
+	<property name="IDatabase" ref="oracle"></property>
+	</bean>
+	
+	<bean id ="Mysqlconnection" class="com.project.db.DbConnection">
+	<property name="IDatabase" ref="mySql"></property>
+	</bean>
+	
+
+</beans>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id = "dbConnection" class="com.project.db.DbConnection">
+	<constructor-arg name ="url" value= "local::Host"></constructor-arg>
+	<constructor-arg name="username" value="deneme"></constructor-arg>
+	<constructor-arg name = "password" value ="191919" ></constructor-arg>
+	</bean>
+
+	<bean id="dbConnectionDiger" class = "com.project.db.DbConnection"> 
+	<constructor-arg name = "url" value ="local2 hos2"> </constructor-arg>
+	<constructor-arg name = "username" value = "158553 "> </constructor-arg>
+	<property name="password" value = "sifre"></property>
+	</bean>
+</beans>
